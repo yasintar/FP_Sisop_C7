@@ -26,14 +26,14 @@ int removedir(char path[500]){
 	printf("Continuing from %s, dname: %s\n",path,pent->d_name);
 	continue;
     } else{
-	printf("Entering first non . or .. file%s , dname: %s\n",path,pent->d_name);
+	printf("Entering first non . or .. file %s , dname: %s\n",path,pent->d_name);
 	strcpy(x,path);
 	printf("Current X :%s\n",x);
 	path=strcat(path,"/");
 	path=strcat(path,pent->d_name);
 
     	if(stat(path, &eStat)){
-	    printf("ERROR: %s... Meaning it can be a file(Most certainly)\n", strerror(errno));
+	    printf("ERROR: %s... No such directory.\n", strerror(errno));
 	    //unlink(path);
 	    //path=x;
     	} else{
